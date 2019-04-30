@@ -1,0 +1,37 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static 'sudoku/css/style.css' %}" />
+</head>
+<body>
+    <h1>{{title}}</h1>
+    <p>{{msg}}</p>
+    <table>
+    <colgroup span="3"></colgroup>
+    <colgroup span="3"></colgroup>
+    {% for row in state %}
+    {% if forloop.counter0|divisibleby:"3" %}
+    <tbody>
+    {% endif %}
+    <tr>
+        {% for num in row %}
+            <td>
+            {% if num != 0 %}
+            {{ num }}
+            {% endif %}
+            </td>
+        {% endfor %}
+    </tr>
+    {% if forloop.counter|divisibleby:"3" %}
+    </tbody>
+    {% endif %}
+    {% endfor %}
+    </table>
+    <p><a href="{% url goto %}">{{goto}}</a></p>
+    <p>{{msg2}}</p>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+      color:black;
+      font-size:16pt;
+      }
+
+h1 {
+    color:red;
+    opacity:0.2;
+    font-size:60pt;
+    margin-top:-20px;
+    margin-bottom:0px;
+    text-align:left;
+    }
+
+p {
+   margin:10px;
+   }
+   
+a {
+   color:blue;
+   text-decoration: none;
+   }
+   
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}   
+
+td {
+    border: solid 1px black;
+    text-align: center;
+    width: 33px;
+}
+
+tr {
+    height: 33px;
+}
+
+tbody {
+    border: solid 3px black;
+}
+
+colgroup {
+    border: solid 3px black;
+}
