@@ -1,6 +1,7 @@
-<Taihei>
+*.pyc
+*~
 __pycache__
-staticfiles
-local_settings.py
+myvenv
 db.sqlite3
-*.py[co]
+/static
+.DS_Store

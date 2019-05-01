@@ -11,6 +11,7 @@ def question(request):
     params = {
             'title': 'Question',
             'msg':'数独の問題です。更新すると問題が変わります。',
+            'msg2':'注意：読み込みに10秒ほどかかることがあります。',
             'goto':'answer',
             'state':Question,
             }

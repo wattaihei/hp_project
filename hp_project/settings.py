@@ -121,15 +121,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# copyed by https://qiita.com/okoppe8/items/76cdb202eb15aab566d1
 
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
-
-if not DEBUG:
-    import django_heroku
-    django_heroku.settings(locals())
