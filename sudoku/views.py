@@ -1,16 +1,21 @@
 from django.shortcuts import render
 from . import sudoku_make
 import csv
+import time
 
 
 def question(request):
+    t0 = time.time()
     sudoku_set = sudoku_make.create()
+    t1 = time.time()
+    delta = round(t1 - t0, 2)
     Question = sudoku_set['question']
     Answer = sudoku_set['answer']
     
     params = {
             'title': 'Question',
             'msg':'数独の問題です。更新すると問題が変わります。',
+            'time': '{0} seconds to create answer'.format(delta),
             'msg2':'注意：読み込みに10秒ほどかかることがあります。',
             'goto':'answer',
             'state':Question,
