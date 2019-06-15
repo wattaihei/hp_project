@@ -4,13 +4,19 @@ body {
       }
 
 h1 {
-    color:red;
+    color:green;
     opacity:0.2;
     font-size:60pt;
     margin-top:-20px;
     margin-bottom:0px;
     text-align:left;
     }
+
+h2 {
+    color:yellow;
+    font-size:40pt;
+    }
+
 
 p {
    margin:10px;
@@ -20,26 +26,3 @@ a {
    color:blue;
    text-decoration: none;
    }
-   
-table {
-    table-layout: fixed;
-    border-collapse: collapse;
-}   
-
-td {
-    border: solid 1px black;
-    text-align: center;
-    width: 50px;
-}
-
-tr {
-    height: 50px;
-}
-
-tbody {
-    border: solid 3px black;
-}
-
-colgroup {
-    border: solid 3px black;
-}
