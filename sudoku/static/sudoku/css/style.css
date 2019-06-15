@@ -15,16 +15,16 @@ h1 {
 p {
    margin:10px;
    }
-   
+
 a {
    color:blue;
    text-decoration: none;
    }
-   
+
 table {
     table-layout: fixed;
     border-collapse: collapse;
-}   
+}
 
 td {
     border: solid 1px black;
