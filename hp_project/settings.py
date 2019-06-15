@@ -1,3 +1,8 @@
+# deploy reccording to https://ymgsapo.com/2018/10/24/deploy-pythonanywhere/
+
+
+
+
 """
 Django settings for hp_project project.
 
@@ -37,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'homepage',
     'sudoku',
 ]
 

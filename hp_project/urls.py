@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import homepage.views as home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home.index),
     path('sudoku/', include('sudoku.urls')),
 ]
