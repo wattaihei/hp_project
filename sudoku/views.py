@@ -15,8 +15,8 @@ def question(request):
     params = {
             'title': 'Question',
             'msg':'数独の問題です。更新すると問題が変わります。',
-            'time': '{0} seconds to create answer'.format(delta),
-            'msg2':'注意：読み込みに10秒ほどかかることがあります。',
+            'time': '{0} seconds to create question'.format(delta),
+            'msg2':'注意：読み込みに10秒ほどかかることがあります。ボタンを押してから問題を作っているので。本当はデータベースに収納して〜ってやりたい。',
             'goto':'answer',
             'state':Question,
             }
@@ -32,7 +32,7 @@ def answer(request):
     params = {
             'title': 'Answer',
             'msg':'解答です。',
-            'msg2':'注意：読み込みに10秒ほどかかることがあります。',
+            'msg2':'注意：読み込みに10秒ほどかかることがあります。ボタンを押してから問題を作っているので。本当はデータベースに収納して〜ってやりたい。',
             'goto':'next question',
             'state':Answer,
             }

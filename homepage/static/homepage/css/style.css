@@ -13,10 +13,16 @@ h1 {
     }
 
 h2 {
-    color:green;
+    color:lightgreen;
+    opacity:0.5;
     font-size:25pt;
     }
 
+h3 {
+    color:black;
+    opacity:0.2;
+    font-size:15pt;
+    }
 
 p {
    margin:10px;
