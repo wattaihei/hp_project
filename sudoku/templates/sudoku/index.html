@@ -10,7 +10,6 @@
 <body>
     <h1>{{title}}</h1>
     <p>{{msg}}</p>
-    <p>{{time}}</p>
     <table>
     <colgroup span="3"></colgroup>
     <colgroup span="3"></colgroup>
@@ -32,7 +31,10 @@
     {% endif %}
     {% endfor %}
     </table>
-    <p><a href="{% url goto %}">{{goto}}</a></p>
+    {% if not_max %}
+    <p><a href="{% url goto num %}">{{next}}</a></p>
+    {% endif %}
+    <p><a href="{% url 'home' %}">問題一覧</a></p>
     <p><a href="/../">home</a></p>
     <p>{{msg2}}</p>
 </body>

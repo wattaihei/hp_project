@@ -1,40 +1,59 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import sudoku_make
-import csv
-import time
+from .models import Sudoku
+from datetime import datetime
 
 
-def question(request):
-    t0 = time.time()
-    sudoku_set = sudoku_make.create()
-    t1 = time.time()
-    delta = round(t1 - t0, 2)
-    Question = sudoku_set['question']
-    Answer = sudoku_set['answer']
-    
+
+
+
+def home(request):
+    if (request.method == 'POST'):
+        sudoku_set = sudoku_make.create()
+        Question = sudoku_set['question']
+        Answer = sudoku_set['answer']
+        Q_d = ','.join([''.join(map(str, row)) for row in Question])
+        A_d = ','.join([''.join(map(str, row)) for row in Answer])
+        Now_d = datetime.now()
+        sudoku = Sudoku(answer=A_d, question=Q_d, time=Now_d)
+        sudoku.save()
+
+    data = Sudoku.objects.all()
     params = {
-            'title': 'Question',
-            'msg':'数独の問題です。更新すると問題が変わります。',
-            'time': '{0} seconds to create question'.format(delta),
-            'msg2':'注意：読み込みに10秒ほどかかることがあります。ボタンを押してから問題を作っているので。本当はデータベースに収納して〜ってやりたい。',
+        'title':'数独プロジェクト',
+        'msg':'数独の問題です。createボタンで問題が追加されます。ただし10秒くらいかかることもあるので注意。',
+        'data': data,
+    }
+    return render(request, 'sudoku/home.html', params)
+
+
+def question(request, num):
+    Q_d = Sudoku.objects.get(id=num).question
+    Question = [[int(num) for num in list(row_s)] for row_s in Q_d.split(',')]
+    params = {
+            'title': 'Question' + str(num),
+            'msg':'問題です。',
             'goto':'answer',
+            'num': num,
+            'next': 'answer',
             'state':Question,
+            'not_max': True
             }
-    with open('answer_memory', 'wt') as f:
-        csvout = csv.writer(f)
-        csvout.writerows(Answer)
     return render(request, 'sudoku/index.html', params)
 
-def answer(request):
-    with open('answer_memory', 'rt') as f:
-        cin = csv.reader(f)
-        Answer = [row for row in cin]
+
+def answer(request, num):
+    A_d = Sudoku.objects.get(id=num).answer
+    Answer = [[int(num) for num in list(row_s)] for row_s in A_d.split(',')]
+    not_Max = num < Sudoku.objects.all().count()
     params = {
-            'title': 'Answer',
+            'title': 'Answer' + str(num),
             'msg':'解答です。',
-            'msg2':'注意：読み込みに10秒ほどかかることがあります。ボタンを押してから問題を作っているので。本当はデータベースに収納して〜ってやりたい。',
-            'goto':'next question',
             'state':Answer,
-            }
+            'not_max': not_Max
+        }
+    if not_Max:
+        params['goto'] = 'question'
+        params['num'] = num + 1
+        params['next'] = 'next question'
     return render(request, 'sudoku/index.html', params)
- 
