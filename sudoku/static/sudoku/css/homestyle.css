@@ -4,7 +4,7 @@ body {
     }
 
 h1 {
-  color:red;
+  color:blue;
   opacity:0.2;
   font-size:60pt;
   margin-top:-20px;
@@ -19,7 +19,6 @@ p {
 
  .btn-flat-border {
     display: inline-block;
-    padding: 0.3em 1em;
     text-decoration: none;
     color: #67c5ff;
     border: solid 2px #67c5ff;
@@ -35,6 +34,14 @@ p {
   form {
       text-align: center;
   }
+
+  .form_conf {
+    text-align: center;
+}
+.form_conf form {
+    display: inline-block;
+    margin: 0 10px;
+}
 
 table {
   table-layout: fixed;

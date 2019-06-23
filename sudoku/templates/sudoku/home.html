@@ -12,10 +12,15 @@
     <p>{{msg}}</p>
 
     
-    <form action="" method="POST">
+    <form action="{% url 'home' %}" method="POST">
         {% csrf_token %}
         <button class="btn-flat-border" type="submit">CREATE</button>
     </form>
+    <form action="{% url 'delete' %}">
+        {% csrf_token %}
+        <button class="btn-flat-border" type="submit"> DELETE</button>
+    </form>
+
     <table>
         <tr>
             <th>Question</th>
@@ -30,7 +35,7 @@
         </tr>
     {% endfor %}
     </table>
-
-    <p><a href="/../">home</a></p>
+    <br>
+    <p><a href="/../" class="btn-flat-border">home</a></p>
 </body>
 </html>

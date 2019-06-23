@@ -32,10 +32,11 @@
     {% endfor %}
     </table>
     {% if not_max %}
-    <p><a href="{% url goto num %}">{{next}}</a></p>
+    <p><a href="{% url goto num %}" class="btn-flat-border">{{next}}</a></p>
     {% endif %}
-    <p><a href="{% url 'home' %}">問題一覧</a></p>
-    <p><a href="/../">home</a></p>
+    <p><a href="{% url 'home' %}" class="btn-flat-border">数独プロジェクトTOP</a></p>
+    <br>
+    <p><a href="/../" class="btn-flat-border">HOME</a></p>
     <p>{{msg2}}</p>
 </body>
 </html>

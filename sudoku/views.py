@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from . import sudoku_make
 from .models import Sudoku
 import datetime
-import pytz
 
 
 
@@ -30,6 +29,17 @@ def home(request):
     return render(request, 'sudoku/home.html', params)
 
 
+
+def delete(request):
+    data = Sudoku.objects.all()
+    if (request.method == 'POST'):
+        data.delete()
+        return redirect(to='/')
+    param = {'title': 'Really Delete?'}
+    return render(request, 'sudoku/delete.html', param)
+
+
+
 def question(request, num):
     Q_d = Sudoku.objects.get(id=num).question
     Question = [[int(num) for num in list(row_s)] for row_s in Q_d.split(',')]
@@ -48,7 +58,7 @@ def question(request, num):
 def answer(request, num):
     A_d = Sudoku.objects.get(id=num).answer
     Answer = [[int(num) for num in list(row_s)] for row_s in A_d.split(',')]
-    not_Max = num < Sudoku.objects.all().count()
+    not_Max = num < Sudoku.objects.all().last().id
     params = {
             'title': 'Answer' + str(num),
             'msg':'解答です。',
