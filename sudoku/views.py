@@ -5,8 +5,6 @@ import datetime
 
 
 
-
-
 def home(request):
     if (request.method == 'POST'):
         sudoku_set = sudoku_make.create()
@@ -23,10 +21,25 @@ def home(request):
     data = Sudoku.objects.all()
     params = {
         'title':'数独プロジェクト',
-        'msg':'数独の問題です。createボタンで問題が追加されます。ただし10秒くらいかかることもあるので注意。',
+        'msg':'数独の問題です。createボタンで問題が追加されます。ただし10秒くらいかかることもあるので注意。そのときは読み込み中止してください。',
         'data': data,
     }
     return render(request, 'sudoku/home.html', params)
+
+
+def check_delete(request):
+    password = 'isaka'
+    params = {'title': 'Confirmation'}
+    if (request.method == 'POST'):
+        inputword = request.POST['inputword']
+        print(inputword)
+        if password == inputword:
+            return render(request, 'sudoku/delete.html', params)
+        else:
+            print('error')
+            params['error'] = 'パスワードが違います。'
+            params['hint'] = 'ヒント：私の好きな作家の苗字です。'
+    return render(request, 'sudoku/checkdelete.html', params)
 
 
 
@@ -34,7 +47,7 @@ def delete(request):
     data = Sudoku.objects.all()
     if (request.method == 'POST'):
         data.delete()
-        return redirect(to='/')
+        return redirect(to='/sudoku')
     param = {'title': 'Really Delete?'}
     return render(request, 'sudoku/delete.html', param)
 
@@ -45,7 +58,7 @@ def question(request, num):
     Question = [[int(num) for num in list(row_s)] for row_s in Q_d.split(',')]
     params = {
             'title': 'Question' + str(num),
-            'msg':'問題です。',
+            'msg':'問題です。一応人間が解けるような難易度ではあるはず。',
             'goto':'answer',
             'num': num,
             'next': 'answer',

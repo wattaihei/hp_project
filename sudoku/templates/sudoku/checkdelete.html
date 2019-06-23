@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static 'sudoku/css/homestyle.css' %}" />
+</head>
+<body>
+    <h1>{{title}}</h1>
+    <p>削除するにはパスワードを入力してください。</p>
+
+    <p class='error-message'>{{error}}</p>
+    <p class='hint-message'>{{hint}}</p>
+
+    <form action="{% url 'confirm' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="inputword">
+            <button class="btn-flat-border" type="submit">送信</button>
+    </form>
+
+    <form action="{% url 'home' %}">
+            {% csrf_token %}
+            <button class="btn-flat-border" type="submit">戻る</button>
+    </form>
+
+    <br>
+    <p><a href="/../" class="btn-flat-border">HOME</a></p>
+</body>
+</html>

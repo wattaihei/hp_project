@@ -17,6 +17,16 @@ p {
  text-align:center;
  }
 
+.error-message {
+    color: red;
+}
+
+.hint-message {
+    margin: 7px;
+    opacity: 0.5;
+    font-size: 8pt;
+}
+
  .btn-flat-border {
     display: inline-block;
     text-decoration: none;

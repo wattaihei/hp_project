@@ -16,7 +16,7 @@
         {% csrf_token %}
         <button class="btn-flat-border" type="submit">CREATE</button>
     </form>
-    <form action="{% url 'delete' %}">
+    <form action="{% url 'confirm' %}">
         {% csrf_token %}
         <button class="btn-flat-border" type="submit"> DELETE</button>
     </form>
