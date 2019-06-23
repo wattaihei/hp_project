@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from . import sudoku_make
 from .models import Sudoku
-from datetime import datetime
+import datetime
+import pytz
 
 
 
@@ -14,7 +15,9 @@ def home(request):
         Answer = sudoku_set['answer']
         Q_d = ','.join([''.join(map(str, row)) for row in Question])
         A_d = ','.join([''.join(map(str, row)) for row in Answer])
-        Now_d = datetime.now()
+        # 時差
+        DIFF_JST_FROM_UTC = 9
+        Now_d = datetime.datetime.utcnow() + datetime.timedelta(hours=DIFF_JST_FROM_UTC)
         sudoku = Sudoku(answer=A_d, question=Q_d, time=Now_d)
         sudoku.save()
 
