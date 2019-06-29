@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . import sudoku_make
 from .models import Sudoku
+from .forms import SudokuForm
 import datetime
 
 
@@ -60,6 +61,7 @@ def question(request, num):
             'title': 'Question' + str(num),
             'msg':'問題です。一応人間が解けるような難易度ではあるはず。',
             'goto':'answer',
+            'form': SudokuForm(),
             'num': num,
             'next': 'answer',
             'state':Question,
