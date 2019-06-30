@@ -57,6 +57,10 @@ def delete(request):
 def question(request, num):
     Q_d = Sudoku.objects.get(id=num).question
     Question = [[int(num) for num in list(row_s)] for row_s in Q_d.split(',')]
+    if (request.method == 'POST'):
+        print('POST')
+        gotten = request.POST
+        print(gotten)
     params = {
             'title': 'Question' + str(num),
             'msg':'問題です。一応人間が解けるような難易度ではあるはず。',

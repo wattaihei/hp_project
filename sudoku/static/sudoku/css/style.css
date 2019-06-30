@@ -27,13 +27,17 @@ h1 {
         color: white;
       }
 
+input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+    }
 
 .input-num {
-    text-align:center;
-    vertical-align: middle;
     font-size:35px;
+    background-color: white;
+    text-align:center;
+    margin: auto;
+    border-width: 0px;
     width:40px;
-    height:40px;
 }
 
 p {
@@ -55,9 +59,11 @@ table {
 
 td {
     border: solid 1px black;
+    margin: 0 auto;
     text-align: center;
     vertical-align: middle;
     width: 50px;
+    height: 50px;
 }
 
 tr {

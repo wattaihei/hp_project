@@ -26,7 +26,7 @@
             {{ num }}
             </div>
             {% else %}
-            <form action="{% url goto num %}" method="POST">
+            <form action="" method="POST">
                 {% csrf_token %}
                 <div class="input-num">
                 {{ form.num|add_class:"input-num" }}
@@ -42,7 +42,7 @@
     {% endfor %}
     </table>
     {% if not_max %}
-    <p><a href="{% url goto num %}" class="btn-flat-border">{{next}}</a></p>
+    <p><a href="{% url goto num %}" class="btn-flat-border" method='POST'>{{next}}</a></p>
     {% endif %}
     <p><a href="{% url 'home' %}" class="btn-flat-border">数独プロジェクトTOP</a></p>
     <br>
