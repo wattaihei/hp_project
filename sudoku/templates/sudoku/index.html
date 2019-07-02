@@ -29,7 +29,7 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="input-num">
-                {{ form.num|add_class:"input-num" }}
+                <label id="{{forloop.parentloop.counter0}} {{forloop.counter0}}">{{ form.num|add_class:"input-num" }}</label>
                 </div>
             </form>
             {% endif %}
