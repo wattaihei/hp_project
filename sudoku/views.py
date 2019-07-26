@@ -58,15 +58,22 @@ def question(request, num):
     Q_d = Sudoku.objects.get(id=num).question
     Question = [[int(num) for num in list(row_s)] for row_s in Q_d.split(',')]
     if (request.method == 'POST'):
-        print('POST')
-        gotten = request.POST
-        print(gotten)
+        nums = request.POST.getlist('num')
+        ind = 0
+        #print(nums)
+        for r in range(9):
+            for c in range(9):
+                if Question[r][c] == 0:
+                    Question[r][c] = int(nums[ind])
+                    ind += 1
+        return answer(request, num, Question)
     params = {
             'title': 'Question' + str(num),
             'msg':'問題です。一応人間が解けるような難易度ではあるはず。',
             'goto':'answer',
-            'form': SudokuForm(),
             'num': num,
+            'form': SudokuForm(),
+            'q': True,
             'next': 'answer',
             'state':Question,
             'not_max': True
@@ -74,16 +81,25 @@ def question(request, num):
     return render(request, 'sudoku/index.html', params)
 
 
-def answer(request, num):
+def answer(request, num, state):
     A_d = Sudoku.objects.get(id=num).answer
     Answer = [[int(num) for num in list(row_s)] for row_s in A_d.split(',')]
+    judge = True
+    for i in range(9):
+        for j in range(9):
+            if state[i][j] != Answer[i][j]:
+                judge = False
     not_Max = num < Sudoku.objects.all().last().id
     params = {
             'title': 'Answer' + str(num),
-            'msg':'解答です。',
+            'q': False,
             'state':Answer,
             'not_max': not_Max
         }
+    if judge is False:
+        params['msg'] = '間違いです！残念でした〜'
+    else:
+        params['msg'] = '正解です！すごい！天才！！'
     if not_Max:
         params['goto'] = 'question'
         params['num'] = num + 1

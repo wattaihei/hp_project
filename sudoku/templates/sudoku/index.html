@@ -11,6 +11,8 @@
 <body>
     <h1>{{title}}</h1>
     <p>{{msg}}</p>
+    <form action="{% url 'question' num %}" method="POST">
+    {% csrf_token %}
     <table>
     <colgroup span="3"></colgroup>
     <colgroup span="3"></colgroup>
@@ -26,12 +28,9 @@
             {{ num }}
             </div>
             {% else %}
-            <form action="" method="POST">
-                {% csrf_token %}
-                <div class="input-num">
-                <label id="{{forloop.parentloop.counter0}} {{forloop.counter0}}">{{ form.num|add_class:"input-num" }}</label>
+                <div class="input-num"　id="{{forloop.parentloop.counter0}}{{forloop.counter0}}">
+                    {{ form.num|add_class:"input-num" }}
                 </div>
-            </form>
             {% endif %}
             </td>
         {% endfor %}
@@ -40,9 +39,14 @@
     </tbody>
     {% endif %}
     {% endfor %}
-    </table>
+    </table>     
+    {% if q %}
+    <button class="btn-flat-border" type="submit">Check</button>
+    {% endif %}
+    </form>
+
     {% if not_max %}
-    <p><a href="{% url goto num %}" class="btn-flat-border" method='POST'>{{next}}</a></p>
+    <p><a href="{% url 'question' num %}" class="btn-flat-border">NEXT QUESTION</a></p>
     {% endif %}
     <p><a href="{% url 'home' %}" class="btn-flat-border">数独プロジェクトTOP</a></p>
     <br>
