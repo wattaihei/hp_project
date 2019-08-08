@@ -1,0 +1,98 @@
+body {
+    color:black;
+    font-size:16pt;
+    }
+
+h1 {
+  color:blue;
+  opacity:0.2;
+  font-size:60pt;
+  margin-top:-20px;
+  margin-bottom:0px;
+  text-align:center;
+  }
+
+  .btn-flat-border {
+      display: inline-block;
+      padding: 0.3em 1em;
+      text-decoration: none;
+      color: #67c5ff;
+      border: solid 2px #67c5ff;
+      border-radius: 3px;
+      transition: .4s;
+    }
+    
+    .btn-flat-border:hover {
+      background: #67c5ff;
+      color: white;
+    }
+
+input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
+
+.input-word {
+  font-size: 40px;
+  background-color: white;
+  text-align:center;
+  width:500px;
+}
+
+p {
+ margin:10px;
+ text-align:center;
+ }
+
+a {
+ color:blue;
+ text-decoration: none;
+ }
+
+form {
+  text-align: center;
+}
+.form_conf {
+  text-align: center;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+td {
+  border: solid 1px black;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  width: 55px;
+  height: 55px;
+}
+
+tr {
+  height: 55px;
+}
+
+tbody {
+  border: solid 3px black;
+}
+
+colgroup {
+  border: solid 3px black;
+}
+
+.error-message {
+    color: red;
+}
+
+.question-style{
+    font-size: 30pt;
+}
+
+.collect{
+    font-size: 25pt;
+    color: red;
+}
