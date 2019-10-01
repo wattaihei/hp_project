@@ -46,11 +46,10 @@
     </form>
 
     {% if not_max %}
-    <p><a href="{% url 'question' num %}" class="btn-flat-border">NEXT QUESTION</a></p>
+    <p><a href="{% url 'question' next_num %}" class="btn-flat-border">NEXT QUESTION</a></p>
     {% endif %}
     <p><a href="{% url 'home' %}" class="btn-flat-border">数独プロジェクトTOP</a></p>
     <br>
     <p><a href="/../" class="btn-flat-border">HOME</a></p>
-    <p>{{msg2}}</p>
 </body>
 </html>
