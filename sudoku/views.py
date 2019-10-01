@@ -77,7 +77,7 @@ def question(request, num):
             'q': True,
             'next': 'answer',
             'state':Question,
-            'not_max': num+1 < Sudoku.objects.all().last().id,
+            'not_max': num < Sudoku.objects.all().last().id,
             }
     return render(request, 'sudoku/index.html', params)
 
