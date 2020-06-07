@@ -22,4 +22,5 @@ urlpatterns = [
     path('', home.index),
     path('sudoku/', include('sudoku.urls')),
     path('sort/', include('sort.urls')),
+    path('portfolio/', include('portfolio.urls'))
 ]

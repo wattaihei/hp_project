@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>自己紹介</title>
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'homepage/css/style.css' %}">
+</head>
+<body>
+    <h1>自己紹介</h1>
+    
+    <div class="box-item">
+        <h2>経歴</h2>
+        <table>
+            <tr>
+                <td>1997年11月</td>
+                <td>生まれ</td>
+            </tr>
+            <tr>
+                <td>2016年4月</td>
+                <td>東京大学 理科１類 入学</td>
+            </tr>
+            <tr>
+                <td>2020年3月</td>
+                <td>東京大学 理学部物理学科 卒業</td>
+            </tr>
+            <tr>
+                <td>2020年4月</td>
+                <td>東京大学大学院 理学系研究科物理学専攻 修士課程 入学</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="box-item">
+        <h2>プログラミングにハマるまで</h2>
+        <p>
+            大学の1~3年の間は授業や実験についていくのが精一杯で、たまの休日は散歩や読書をしてのんびり過ごしていました。
+            しかし学部4年になったころ、急に社会に出た後のことを意識するようになり、なにかしら手に職を付けないとまずいという感覚に襲われました。
+            そこでプログラミングを始めることにしました。
+            元々ゲーム好きなこともあって、デジタルなデバイスを触ることには抵抗はありませんでしたし、自分の書いた結果がすぐに返ってくるのがわかりやすいと思ったからです。 
+        </p>
+        <p>
+            軽く調べてみると、巷ではPythonが流行していると分かったので、Pythonの文法習得から始めました。
+            １ヶ月ほど勉強して、このホームページを作れるくらいのレベルにはなりました。
+            Pythonは初心者が始めるにはちょうど良い言語でした。
+        </p>
+        <p>
+            ホームページの形がある程度出来上がると、今度は「これを使ってなにをするんだ」という状態になりました。
+            もっといろいろ作ってみようかと調べているうちに、AtCoderに出会います。
+        </p>
+        <p>
+            AtCoderというのは競技プログラミングのサービスで、プログラミングを使って数理科学的な問題解決能力を競うものです。
+            一応物理科なので数学力には多少自負がありましたし、結果がレートとなってわかりやすいし、アルゴリズムの勉強もできるし、といった具合でやらない理由がありませんでした。
+        </p>
+        <p>
+            その結果、AtCoderにはすごくハマりました。起きている時間のほとんどを競プロに費やしました。
+            結果として休日に散歩や読書をする時間はなくなってしまいましたが...
+            とにかく毎日問題を解いて、毎週欠かさずコンテストに出るようになりました。
+        </p>
+        <p>
+            レーティングが水色に達した頃には、自分のコーディング力がかなりの自信になっていました。今はこの強みを何かに生かせないか模索しています。
+        </p>
+    </div>
+
+    <div class="box-item">
+        <h2>これまでの制作物や実績など</h2>
+        <div class="item-content">
+            <h3>AtCoder</h3>
+            <p>
+                一番熱中している、競技プログラミングコンテストサイトです。アカウントは<a href="https://atcoder.jp/users/wattaihei">こちら</a>。
+            </p>
+            <p>
+                2020/5/3にレーティング<span id="yellow-coder">黄色</span>を達成しました！参加者の上位3%以内の実力に相当します。
+                基本はPythonで出ていますが、必要なときはC++も使います。
+            </p>
+            <p>
+                ちなみに、Codeforcesという海外のコンテストにもたまに出場します。
+            </p>
+        </div>
+    
+    
+        <div class="item-content">
+            <h3>アルバイト</h3>
+            <p>AtCoderをきっかけに、某IT企業でアルバイトを始めました。これまでにやらせていただいたこととしては、</p>
+            <ul>
+                <li><p>AWSを用いた大規模データ処理のテストと改修</p></li>
+                <li><p>テスト自動化ツールの作成</p></li>
+                <li><p>Vue.jsを利用したフロントエンド開発</p></li>
+            </ul>
+            <p>などなど。勉強になっています。</p>
+        </div>
+    
+    
+        <div class="item-content">
+            <h3>このページ</h3>
+            <p>
+                github: <a href="https://github.com/wattaihei/hp_project">https://github.com/wattaihei/hp_project</a> 
+            </p>
+            <p>
+                ホームは<a href="/">こちら</a>。原板は始めて間もない頃に作ったので無駄が多かったりするのですが、数独maker&solverやソートなぞなぞなどのミニゲームを作りました。
+            </p>
+        </div>
+    
+        <div class="item-content">
+            <h3>iOSアプリ</h3>
+            <p>
+                github: <a href="https://github.com/wattaihei/TimeKeeper">https://github.com/wattaihei/TimeKeeper</a>
+            </p>
+            <p>
+                AppStore: <a href="https://apps.apple.com/us/app/timekeeperforstudying/id1510665753?l=ja&ls=1">https://apps.apple.com/us/app/timekeeperforstudying/id1510665753?l=ja&ls=1</a>
+            </p>
+            <p>
+                時間管理アプリです。簡単なものですが、一回iOSアプリ開発を経験しておきたくて作りました。
+            </p>
+        </div>
+    
+        <div class="item-content">
+            <h3>Twitterのbot</h3>
+            <p>
+                github: <a href="https://github.com/wattaihei/TweetBotForProgrammingContest">https://github.com/wattaihei/TweetBotForProgrammingContest</a> (一部隠してます)
+            </p>
+            <p>
+                アカウント: <a href="https://twitter.com/wattaihei_pc">https://twitter.com/wattaihei_pc</a>
+            </p>
+            <p>
+                AtCoderの問題を解いたときに自動で記録してくれるものがあるといいな〜と思って作りました。
+                APIを叩いているだけですが。
+            </p>
+        </div>
+    </div>
+
+
+    <div class="box-item">
+        <h2>言語など</h2>
+        <div class="item-content">
+            <h3>Python</h3>
+            <p>
+                一番よく使います。競プロだけでなく、研究活動やアルバイトでもちょっとした自動化などに重宝しています。
+            </p>
+        </div>
+    
+        <div class="item-content">
+            <h3>JavaScript</h3>
+            <p>
+                アルバイトでnode.jsを用いた自動テストツールを作成しました。また、個人的にJQueryを勉強して
+                <a href="https://hithomerun.herokuapp.com/">こんなもの</a>も作りました。
+            </p>
+        </div>
+    
+        <div class="item-content">
+            <h3>C++</h3>
+            <p>
+                研究で解析に使うことがあります。また、C++は競プロ界における英語のような立ち位置なので、教養程度に読み書きはできます。
+            </p>
+        </div>
+    
+        <div class="item-content">
+            <h3>Swift</h3>
+            <p>
+                iOSアプリを作るのに使いました。
+            </p>
+        </div>
+    </div>
+
+    <div class="box-item">
+        <h2>資格など</h2>
+        <div class="item-content">
+            <p>基本情報技術者 合格</p>
+        </div>
+        <div class="item-content">
+            <p>TOEIC スコア800</p>
+        </div>
+    </div>
+
+
+    <div class="box-item">
+        <h2>研究活動</h2>
+        <p>あまり深くは立ち入りませんが、物理の中でも天文に関する分野の研究をしてます。
+            実績と誇れるほどのものではないのですが、</p>
+            <ul>
+                <li><p>レーザー共振器を利用した暗黒物質の探索</p></li>
+                <li><p>原始星のガス運動の解析</p></li>
+                <li><p>偏光X線観測のための装置開発およびシミュレーション</p></li>
+            </ul>
+        <p>などをやってきました。</p>
+    </div>
+
+
+    <div class="box-item">
+        <h2>趣味など</h2>
+        <div class="item-content">
+            <h3>競プロ</h3>
+            <p>
+                今はもっぱら競プロです。次は橙色を目指していますが、道のりは険しそうです。
+            </p>
+        </div>
+
+        <div class="item-content">
+            <h3>ゲーム</h3>
+            <p>
+                ゲームは好きです。小さい頃はDSやり込んでました。スマホゲームもやります。
+            </p>
+        </div>
+
+        <div class="item-content">
+            <h3>ランニング</h3>
+            <p>
+                中学高校と陸上部で長距離をやっていました。今はたまにジョギングにいく程度ですが、体力はある方だと思います。
+            </p>
+        </div>
+
+        <div class="item-content">
+            <h3>読書</h3>
+            <p>
+                最近あんまり読めてないですが、伊坂幸太郎が好きです。
+            </p>
+        </div>
+    </div>
+    
+
+    <p><a href="/" class="btn-flat-border">HOME</a></p>
+</body>
+
+</html>

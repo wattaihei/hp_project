@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'homepage',
     'sudoku',
+    'portfolio',
     'sort',
 ]
 
